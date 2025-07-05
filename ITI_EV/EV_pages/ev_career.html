@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers</title>
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-p+c72PHGdzKfYHu+UH0eYD0vKt+JXhWfB4b82N10q3U6XyX+FChxpKz+NDhHUpCjZD6jDZlD0v2LqvU3KIyxwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <style>
+        /* Example CSS for the hide-on-scroll logic */
+        #site-header {
+            background-color: #e6e6e6;
+            color: #fff;
+            padding: 3rem 9%;
+            /* If you want it to “stick” at the top normally, uncomment: */
+            /* position: sticky; */
+            /* top: 0; */
+            /* z-index: 100; */
+            transition: transform 0.3s ease;
+        }
+        #site-header.hidden {
+            transform: translateY(-100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* —— Career Grid —— */
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 9%;
+        }
+        .career-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .career-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eaeaea;
+        }
+        .career-details {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .career-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+        .career-desc {
+            font-size: 0.9rem;
+            color: #555;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        .btn-apply {
+            background-color: #ffa41c;
+            color: #111;
+            text-align: center;
+            padding: 0.65rem 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-apply:hover {
+            background-color: #f08804;
+        }
+
+        /* Section Heading */
+        .section-heading {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: #111;
+        }
+        .section-heading span {
+            color: #ffa41c;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../ev_css/style.css">
+</head>
+
+<body>
+    <!-- Header (same as your index) -->
+    <header id="site-header" class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="../index_ev.html" class="logo">
+            <span> Institute </span>of technology and Innovation
+        </a>
+        <nav class="navbar">
+            <a href="../index_ev.html">Home</a>
+            <a href="./ev.html">EVs</a>
+            <a href="./ev_customer.html">Customer</a>
+            <a href="https://forms.gle/JpLhKTdxGZ2HB2Ag9">Franchise</a>
+            <a href="./ev_aboutus.html">About Us</a>
+            <a href="./ev_contact_us.html">Contact</a>
+            <a href="./ev_career.html">Career</a>
+            <a href="./ev_training.html">Training</a>
+            <a href="./ev_spare_parts.html">Spare Parts</a>
+        </nav>
+    </header> 
+
+    <!-- —— Main Content (Career Page) —— -->
+    <main>
+        <!-- Section Heading -->
+        <h1 class="section-heading">
+            Join Our <span>Team</span>
+        </h1>
+
+        <!-- Career Grid: Display multiple career cards -->
+        <div class="career-grid">
+            <!-- Career #1: Sales Executive -->
+            <div class="career-card">
+                <img
+                    src="../ev_assets/Sales executive.avif"
+                    alt="Sales Executive"
+                    class="career-image"
+                />
+                <div class="career-details">
+                    <h3 class="career-title">Sales Executive</h3>
+                    <p class="career-desc">
+                        Drive our sales efforts forward by identifying leads, building relationships, and closing deals. Ideal for a motivated individual with excellent communication skills.
+                    </p>
+                    <a href="mailto:bbhtechnicals@gmail.com?subject=Application%20for%20Sales%20Executive" class="btn-apply">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Career #2: Service Executive -->
+            <div class="career-card">
+                <img
+                    src="../ev_assets/Service executive.jpg"
+                    alt="Service Executive"
+                    class="career-image"
+                />
+                <div class="career-details">
+                    <h3 class="career-title">Service Executive</h3>
+                    <p class="career-desc">
+                        Ensure customer satisfaction by managing service requests, coordinating with technicians, and maintaining high service standards. Perfect for someone who enjoys problem-solving.
+                    </p>
+                    <a href="mailto:bbhtechnicals@gmail.com?subject=Application%20for%20Service%20Executive" class="btn-apply">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Career #3: HR Executive -->
+            <div class="career-card">
+                <img
+                    src="../ev_assets/HR executive.jpg"
+                    alt="HR Executive"
+                    class="career-image"
+                />
+                <div class="career-details">
+                    <h3 class="career-title">HR Executive</h3>
+                    <p class="career-desc">
+                        Support our human resources functions by handling recruitment, employee relations, and onboarding processes. A great role for someone with strong interpersonal skills.
+                    </p>
+                    <a href="mailto:bbhtechnicals@gmail.com?subject=Application%20for%20HR%20Executive" class="btn-apply">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Career #4: Production Executive -->
+            <div class="career-card">
+                <img
+                    src="../ev_assets/Mohammed_Asad.jpg"
+                    alt="Production Executive"
+                    class="career-image"
+                />
+                <div class="career-details">
+                    <h3 class="career-title">Production Executive</h3>
+                    <p class="career-desc">
+                        Oversee production workflows, coordinate with vendors, and ensure timely delivery of products. Suited for candidates with strong organizational and leadership abilities.
+                    </p>
+                    <a href="mailto:bbhtechnicals@gmail.com?subject=Application%20for%20Production%20Executive" class="btn-apply">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- —— Footer (unchanged) —— -->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="../index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="./ev.html"> <i class="fas fa-arrow-right"></i> EVs </a>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="./contact_us.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9440558121 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> iticontactnow@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+            </div>
+
+            <div class="box">
+                <h3>social media</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+        </div>
+
+        <div class="credit"> &#169; Created by Institute of technology and Innovation | All Rights Reserved </div>
+    </section>
+
+    <script>
+      (function() {
+        let lastScrollY = window.pageYOffset;
+        const header = document.getElementById("site-header");
+
+        window.addEventListener("scroll", function() {
+          const currentScrollY = window.pageYOffset;
+
+          if (currentScrollY > lastScrollY) {
+            // Scrolling down → hide header
+            header.classList.add("hidden");
+          } else {
+            // Scrolling up → show header
+            header.classList.remove("hidden");
+          }
+
+          lastScrollY = currentScrollY;
+        });
+      })();
+    </script>
+</body>
+</html>

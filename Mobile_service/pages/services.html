@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Services – Mobile Service Center</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../Mobile_service style/mobile_service.css"/>
+  <style>
+    /* Enlarge the service boxes content */
+/* Services Section Container: side‑by‑side layout */
+.box-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;              /* existing breathing room */
+}
+
+/* Each service box */
+.box-container .box {
+  flex: 1 1 calc(33% - 2.5rem);
+  max-width: calc(33% - 2.5rem);
+  padding: 2rem;            /* existing padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Icon */
+.box-container .box i {
+  font-size: 3rem;          /* user‑preferred size */
+  color: #f44336;
+  margin-bottom: 1rem;
+}
+
+/* Title */
+.box-container .box h3 {
+  font-size: 1.5rem;
+  margin: 0.75rem 0;
+  color: #222;
+}
+
+/* Description */
+.box-container .box p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Two‑per‑row on medium screens */
+@media (max-width: 900px) {
+  .box-container .box {
+    flex: 1 1 calc(45% - 2.5rem);
+    max-width: calc(45% - 2.5rem);
+  }
+}
+
+/* Full‑width on small screens, plus icon/text size adjustments */
+@media (max-width: 600px) {
+  .box-container {
+    gap: 1.5rem;
+  }
+  .box-container .box {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .box-container .box i {
+    font-size: 2.5rem;
+  }
+  .box-container .box h3 {
+    font-size: 1.25rem;
+  }
+  .box-container .box p {
+    font-size: 0.95rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<header id="site-header" class="header">
+  <div id="menu-btn" class="fas fa-bars"></div>
+  <a href="../mobile_service_index.html" class="logo">
+    <span>Mobile</span> Service Center
+  </a>
+  <nav class="navbar">
+    <a href="../mobile_service_index.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./Mobile_service_aboutus.html">About Us</a>
+    <a href="./Mobile_service_contactus.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="section-heading"> Our <span>Services</span> </h1>
+  <div class="box-container">
+    <!-- Screen Repair -->
+    <div class="box" id="screen-repair">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Screen Repair</h3>
+      <p>
+        Cracked or shattered displays replaced using OEM‑grade glass.
+        Turnaround: 30–45 mins.
+      </p>
+    </div>
+    <!-- Battery Replacement -->
+    <div class="box" id="battery-replacement">
+      <i class="fas fa-battery-full"></i>
+      <h3>Battery Replacement</h3>
+      <p>
+        Genuine cells installed with full diagnostic test.
+        Warranty: 6 months.
+      </p>
+    </div>
+    <!-- Water Damage -->
+    <div class="box" id="water-damage">
+      <i class="fas fa-water"></i>
+      <h3>Water Damage</h3>
+      <p>
+        Complete disassembly, cleaning & component‑level repair.
+        Diagnostics report included.
+      </p>
+    </div>
+    <!-- Diagnostics -->
+    <div class="box" id="diagnostics">
+      <i class="fas fa-cogs"></i>
+      <h3>Full Diagnostics</h3>
+      <p>
+        Hardware & software health check, performance tuning,
+        malware removal.
+      </p>
+    </div>
+    <!-- Software Services -->
+    <div class="box" id="software">
+      <i class="fas fa-sync-alt"></i>
+      <h3>Software Updates</h3>
+      <p>
+        OS upgrade, ROM flashing, data backup & restore.
+      </p>
+    </div>
+  </div>
+</main>
+
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="../mobile_service_index.html"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="services.html"><i class="fas fa-arrow-right"></i> Services</a>
+      <a href="about_us.html"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="contact_us.html"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#"><i class="fas fa-phone"></i> +91 98765 43210</a>
+      <a href="#"><i class="fas fa-envelope"></i> support@mobileservice.in</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</a>
+    </div>
+  </div>
+  <div class="credit">
+    &#169; 2025 Mobile Service Center | All Rights Reserved
+  </div>
+</section>
+
+<script src="../js/script.js"></script>
+<script>
+  (function() {
+    let lastY = window.pageYOffset;
+    const header = document.getElementById("site-header");
+    window.addEventListener("scroll", function() {
+      const y = window.pageYOffset;
+      if (y > lastY) header.classList.add("hidden");
+      else header.classList.remove("hidden");
+      lastY = y;
+    });
+  })();
+</script>
+</body>
+</html>

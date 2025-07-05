@@ -1,0 +1,110 @@
+<!-- about_us.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – CPR Medical Devices</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="../cpr_style/cpr_style.css"/>
+</head>
+<body>
+
+<header id="site-header" class="header">
+  <div id="menu-btn" class="fas fa-bars"></div>
+  <a href="../index_cpr.html" class="logo"><span>CPR</span> Medical Devices</a>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="./cpr_products.html">Products</a>
+    <a href="./cpr_aboutus.html">About Us</a>
+    <a href="./cpr_contactus.html">Contact</a>
+  </nav>
+</header>
+
+<section class="home" id="about">
+  <h1 data-speed="-2" class="home-parallax" style="font-size:10rem; line-height:1;">Who We Are</h1>
+  <p data-speed="5" class="home-parallax" style="max-width:800px; margin:2rem auto; font-size:1.8rem; color:var(--light-color); line-height:1.6;">
+    CPR Medical Devices began with a mission to put reliable, automated CPR technology in every ambulance and emergency room across India. Led by a team of biomedical engineers and emergency-response experts, we innovate, manufacture, and support life‑saving equipment that meets the highest global standards.
+  </p>
+  <a data-speed="7" href="products.html" class="btn home-parallax">View Our Machines</a>
+</section>
+
+<section class="icons-container">
+  <div class="icons">
+    <i class="fas fa-bullseye"></i>
+    <div class="content">
+      <h3>Our Vision</h3>
+      <p>Make automated CPR universally available in time‑critical settings.</p>
+    </div>
+  </div>
+  <div class="icons">
+    <i class="fas fa-eye"></i>
+    <div class="content">
+      <h3>Our Mission</h3>
+      <p>Deliver robust, user‑friendly devices and training to save lives.</p>
+    </div>
+  </div>
+  <div class="icons">
+    <i class="fas fa-heart"></i>
+    <div class="content">
+      <h3>Our Values</h3>
+      <p>Integrity, innovation, and unwavering commitment to patient safety.</p>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="team">
+  <h1 class="heading"><span>Our</span> Team</h1>
+  <div class="box-container">
+    <div class="box">
+      <img src="assets/team-ceo.jpg" alt="CEO" style="border-radius:50%; width:8rem; height:8rem; object-fit:cover;">
+      <h3>Dr. Anjali Rao</h3>
+      <p>Founder & CEO</p>
+    </div>
+    <div class="box">
+      <img src="assets/team-engineer.jpg" alt="Chief Engineer" style="border-radius:50%; width:8rem; height:8rem; object-fit:cover;">
+      <h3>Rajesh Kumar</h3>
+      <p>Chief Engineer</p>
+    </div>
+    <div class="box">
+      <img src="assets/team-support.jpg" alt="Support Lead" style="border-radius:50%; width:8rem; height:8rem; object-fit:cover;">
+      <h3>Priya Singh</h3>
+      <p>Support Lead</p>
+    </div>
+  </div>
+</section>
+
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="index.html"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="products.html"><i class="fas fa-arrow-right"></i> Products</a>
+      <a href="about_us.html"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="contact_us.html"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#"><i class="fas fa-phone"></i> +91 12345 67890</a>
+      <a href="#"><i class="fas fa-envelope"></i> support@cprmedical.in</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</a>
+    </div>
+  </div>
+  <div class="credit">&#169; 2025 CPR Medical Devices | All Rights Reserved</div>
+</section>
+
+<script src="js/script.js"></script>
+<script>
+  (function(){
+    let lastY=window.pageYOffset; const h=document.getElementById('site-header');
+    window.addEventListener('scroll', ()=>{
+      const y=window.pageYOffset;
+      y>lastY? h.classList.add('hidden'): h.classList.remove('hidden');
+      lastY=y;
+    });
+  })();
+</script>
+</body>
+</html>

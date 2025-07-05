@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Marketplace</title>
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <!-- Font Awesome for icons (e.g., stars for ratings) -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-p+c72PHGdzKfYHu+UH0eYD0vKt+JXhWfB4b82N10q3U6XyX+FChxpKz+NDhHUpCjZD6jDZlD0v2LqvU3KIyxwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <style>
+        /* Example CSS for the hide-on-scroll logic */
+        #site-header {
+          background-color: #e6e6e6;
+          color: #fff;
+          padding: 3rem 9%;
+          /* If you want it to “stick” at the top normally, uncomment: */
+          /* position: sticky; */
+          /* top: 0; */
+          /* z-index: 100; */
+          transition: transform 0.3s ease;
+        }
+
+        #site-header.hidden {
+          transform: translateY(-100%);
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #000;      /* arrow color = black */
+          font-size: 2rem;  /* arrow size */
+        }
+
+        /* —— Global Styles —— */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* —— Product Grid —— */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eaeaea;
+        }
+        .product-details {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+        .product-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #b12704;
+            margin-bottom: 0.75rem;
+        }
+        .product-rating {
+            margin-bottom: 0.75rem;
+        }
+        .product-rating i {
+            color: #ffa41c;
+            margin-right: 2px;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: #555;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        .btn-buy {
+            background-color: #ffa41c;
+            color: #111;
+            text-align: center;
+            padding: 0.65rem 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .btn-buy:hover {
+            background-color: #f08804;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../ev_css/style.css">
+</head>
+
+<body>
+    
+    <!-- Header (same as your index) -->
+    <header id="site-header" class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="../index_ev.html" class="logo">
+            <span> Institute </span>of technology and Innovation
+        </a>
+
+        <nav class="navbar">
+            <a href="../index_ev.html">Home</a>
+            <a href="./ev.html">EVs</a>
+            <a href="./ev_customer.html">Customer</a>
+            <a href="https://forms.gle/JpLhKTdxGZ2HB2Ag9">Franchise</a>
+            <a href="./ev_aboutus.html">About Us</a>
+            <a href="./ev_contact_us.html">Contact</a>
+            <a href="./ev_career.html">Career</a>
+            <a href="./ev_training.html">Training</a>
+            <a href="./ev_spare_parts.html">Spare Parts</a>
+        </nav>
+    </header> 
+
+    <!-- —— Main Content —— -->
+    <main>
+        <!-- Section Heading -->
+        <h1 class="section-heading">
+            Explore Our <span>Electric Vehicles</span>
+        </h1>
+
+        <!-- Product Grid: Display multiple EV cards -->
+        <div class="product-grid">
+            <!-- EV #1 -->
+            <div class="product-card">
+                <img
+                    src="../ev_assets/ev-1.webp"
+                    alt="EV Model A"
+                    class="product-image"
+                />
+                <div class="product-details">
+                    <h3 class="product-title">Model A</h3>
+                    <div class="product-price">₹62,000/-</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5)</span>
+                    </div>
+                    <p class="product-desc">
+                        New model • 2025 • Automatic • Electric • Top speed 100 km/h.
+                    </p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- EV #2 -->
+            <div class="product-card">
+                <img
+                    src="../ev_assets/ev-2.webp"
+                    alt="EV Model B"
+                    class="product-image"
+                />
+                <div class="product-details">
+                    <h3 class="product-title">Model B</h3>
+                    <div class="product-price">₹75,000/-</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-desc">
+                        Sleek design • 2025 • Fully Electric • Range 120 km • Automatic.
+                    </p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- EV #3 -->
+            <div class="product-card">
+                <img
+                    src="../ev_assets/ev-3.webp"
+                    alt="EV Model C"
+                    class="product-image"
+                />
+                <div class="product-details">
+                    <h3 class="product-title">Model C</h3>
+                    <div class="product-price">₹89,000/-</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(4.3)</span>
+                    </div>
+                    <p class="product-desc">
+                        High-performance • 2025 • Electric • Range 130 km • Digital display.
+                    </p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- EV #4 -->
+            <div class="product-card">
+                <img
+                    src="../ev_assets/ev-1.webp"
+                    alt="EV Model D"
+                    class="product-image"
+                />
+                <div class="product-details">
+                    <h3 class="product-title">Model D</h3>
+                    <div class="product-price">₹95,000/-</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                        <span>(3.8)</span>
+                    </div>
+                    <p class="product-desc">
+                        Sport edition • 2025 • Electric • Range 140 km • Leather seats.
+                    </p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- EV #5 -->
+            <div class="product-card">
+                <img
+                    src="../ev_assets/ev-2.webp"
+                    alt="EV Model E"
+                    class="product-image"
+                />
+                <div class="product-details">
+                    <h3 class="product-title">Model E</h3>
+                    <div class="product-price">₹55,000/-</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(3.0)</span>
+                    </div>
+                    <p class="product-desc">
+                        Budget-friendly • 2025 • Electric • Range 80 km • Lightweight frame.
+                    </p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- EV #6 -->
+            <div class="product-card">
+                <img
+                    src="../ev_assets/ev-3.webp"
+                    alt="EV Model F"
+                    class="product-image"
+                />
+                <div class="product-details">
+                    <h3 class="product-title">Model F</h3>
+                    <div class="product-price">₹102,000/-</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5.0)</span>
+                    </div>
+                    <p class="product-desc">
+                        Luxury edition • 2025 • Electric • Range 150 km • Premium audio system.
+                    </p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- —— Footer —— -->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="../index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="./ev.html"> <i class="fas fa-arrow-right"></i> EVs </a>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="./contact_us.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9440558121 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> iticontactnow@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+            </div>
+
+            <div class="box">
+                <h3>social media</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+        </div>
+
+        <div class="credit"> &#169; Created by Institute of technology and Innovation | All Rights Reserved </div>
+    </section>
+</body>
+
+<script>
+  (function() {
+    let lastScrollY = window.pageYOffset;
+    const header = document.getElementById("site-header");
+
+    window.addEventListener("scroll", function() {
+      const currentScrollY = window.pageYOffset;
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling down → hide header
+        header.classList.add("hidden");
+      } else {
+        // Scrolling up → show header
+        header.classList.remove("hidden");
+      }
+
+      lastScrollY = currentScrollY;
+    });
+  })();
+</script>
+
+</html>

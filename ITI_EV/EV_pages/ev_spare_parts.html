@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spare Parts</title>
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-p+c72PHGdzKfYHu+UH0eYD0vKt+JXhWfB4b82N10q3U6XyX+FChxpKz+NDhHUpCjZD6jDZlD0v2LqvU3KIyxwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <style>
+        /* Example CSS for the hide-on-scroll logic */
+        #site-header {
+            background-color: #e6e6e6;
+            color: #fff;
+            padding: 3rem 9%;
+            /* If you want it to “stick” at the top normally, uncomment: */
+            /* position: sticky; */
+            /* top: 0; */
+            /* z-index: 100; */
+            transition: transform 0.3s ease;
+        }
+        #site-header.hidden {
+            transform: translateY(-100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* —— Career Grid —— */
+        .career-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem 9%;
+        }
+        .career-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .career-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .career-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eaeaea;
+        }
+        .career-details {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .career-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+        .career-desc {
+            font-size: 0.9rem;
+            color: #555;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        .btn-apply {
+            background-color: #ffa41c;
+            color: #111;
+            text-align: center;
+            padding: 0.65rem 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+        }
+        .btn-apply:hover {
+            background-color: #f08804;
+        }
+
+        /* Section Heading */
+        .section-heading {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            color: #111;
+        }
+        .section-heading span {
+            color: #ffa41c;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../ev_css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <style>
+        /* —— Hide-on-scroll logic for header —— */
+        #site-header {
+          background-color: #e6e6e6;
+          color: #fff;
+          padding: 3rem 9%;
+          transition: transform 0.3s ease;
+        }
+        #site-header.hidden {
+          transform: translateY(-100%);
+        }
+
+        /* —— Product Grid & Cards —— */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            padding: 1rem;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .product-card h3 {
+            font-size: 1.3rem;
+            color: #000;
+            margin-bottom: 0.75rem;
+        }
+        .product-card ul {
+            list-style: disc inside;
+            padding-left: 0.5rem;
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .product-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        .product-card .btn-buy {
+            background-color: #ffa41c;
+            color: #111;
+            text-align: center;
+            padding: 0.65rem 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-top: auto;
+        }
+        .product-card .btn-buy:hover {
+            background-color: #f08804;
+        }
+
+        /* Ensure slider images fill the slide container and maintain aspect ratio */
+        .product-image-slider .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-image-slider .swiper-slide img.product-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        /* Adjust navigation arrow colors/position if needed */
+        .product-image-slider .swiper-button-prev,
+        .product-image-slider .swiper-button-next {
+            color: var(--orange, #ff9719);
+        }
+
+        /* Pagination bullet color */
+        .product-image-slider .swiper-pagination-bullet {
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 1;
+        }
+        .product-image-slider .swiper-pagination-bullet-active {
+            background: var(--orange, #ff9719);
+        }
+
+        /* If you want to constrain slider height uniformly: */
+        .product-image-slider {
+            width: 100%;
+            max-height: 200px;
+            position: relative;
+        }
+        .product-image-slider .swiper-slide img.product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<body>
+    <!-- Header (same as your index) -->
+<header id="site-header" class="header">
+    <div id="menu-btn" class="fas fa-bars"></div>
+    <a href="../index_ev.html" class="logo">
+        <span> Institute </span>of technology and Innovation
+    </a>
+    <nav class="navbar">
+        <a href="../index_ev.html">Home</a>
+        <a href="./ev.html">EVs</a>
+        <a href="./ev_customer.html">Customer</a>
+        <a href="https://forms.gle/JpLhKTdxGZ2HB2Ag9">Franchise</a>
+        <a href="./ev_aboutus.html">About Us</a>
+        <a href="./ev_contact_us.html">Contact</a>
+        <a href="./ev_career.html">Career</a>
+        <a href="./ev_training.html">Training</a>
+        <a href="./ev_spare_parts.html">Spare Parts</a>
+    </nav>
+</header> 
+
+    <!-- Spare Parts Section -->
+<section id="spare-parts">
+    <h2 class="heading">
+        EV <span>spare parts</span>
+    </h2>
+    <div class="product-grid" style="max-width:1200px; margin:0 auto;">
+        <!-- Motor -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/motor.jpg"
+                alt="Electric Traction Motor"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Motor</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    High-quality electric traction motor for various EV models. Compatible with standard mountings.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Controller Card with Slider -->
+        <div class="product-card">
+            <!-- Slider container; class 'product-image-slider' used for JS init -->
+            <div class="product-image-slider swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <img src="../ev_assets/Controller.jpeg" alt="Controller view 1" class="product-image" />
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <img src="../ev_assets/Controller2.jpeg" alt="Controller view 2" class="product-image" />
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+                <!-- Pagination (dots) -->
+                <div class="swiper-pagination"></div>
+                <!-- Navigation arrows -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <!-- Details below slider -->
+            <div class="product-details">
+                <h3 class="product-title">Controller</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Vehicle Control Unit (VCU) or other ECUs for power management and drive control. OEM-grade compatibility.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Battery -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/battery.jpg"
+                alt="Traction Battery / 12V Battery"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Battery</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Traction battery pack or 12V auxiliary battery. Genuine cells/modules and accessories.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Body (with 4 images slider) -->
+        <div class="product-card">
+            <!-- Slider container -->
+            <div class="product-image-slider swiper">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <img src="../ev_assets/Body.jpeg" alt="Body view 1" class="product-image" />
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <img src="../ev_assets/Body 2.jpeg" alt="Body view 2" class="product-image" />
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <img src="../ev_assets/Body 3.jpeg" alt="Body view 3" class="product-image" />
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <img src="../ev_assets/Body 4.jpeg" alt="Body view 4" class="product-image" />
+                    </div>
+                </div>
+                <!-- Pagination dots -->
+                <div class="swiper-pagination"></div>
+                <!-- Navigation arrows -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <!-- Details below the slider -->
+            <div class="product-details">
+                <h3 class="product-title">Body</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Body panels, fenders, doors, bumpers, trim pieces, and related exterior components. High-quality fitment for EV chassis.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Meter -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/meter.jpg"
+                alt="EV Meter / Display"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Meter</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Instrument cluster or digital display unit for EV dashboard. High-resolution, OEM fitment.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Throttle -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/throttle.jpg"
+                alt="EV Throttle"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Throttle</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Electronic throttle control assembly for EV. Precision-engineered for smooth acceleration.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Converter -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/converter.jpg"
+                alt="DC-DC Converter"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Converter</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    DC-DC converter unit for auxiliary power. Reliable performance and safety features.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Tire -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/tire.jpg"
+                alt="EV Tires"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Tire</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    EV-specific tires with optimal grip and efficiency. Various sizes available.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Headlight -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/headlight.jpg"
+                alt="EV Headlight"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Headlight</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    LED or projector headlight assemblies for EV models. Durable and energy-efficient.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Back Light -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/back-light.jpg"
+                alt="EV Back Light / Taillight"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Back Light</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Taillight and brake light assemblies. High-visibility LED modules.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Seat -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/seat.jpg"
+                alt="EV Seat & Upholstery"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Seat</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Seats and upholstery components for EV cabins. Comfortable and durable materials.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Theft Remote -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/theft-remote.jpg"
+                alt="EV Theft Remote / Key Fob"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Theft Remote</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Key fob or remote for EV locking/unlocking and security features.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Shock Absorber -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/shock-absorber.jpg"
+                alt="EV Shock Absorber"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Shock Absorber</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Suspension shock absorbers/struts designed for EV weight and performance.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Brake Pads -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/brake-pads.jpg"
+                alt="EV Brake Pads"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Brake Pads</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    High-performance brake pads compatible with regenerative braking systems.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Mudguard -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/mudguard.jpg"
+                alt="EV Mudguard"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Mudguard</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Durable mudguards designed for EV chassis and wheel arches to prevent spray.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Brake Lever -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/brake-lever.jpg"
+                alt="Brake Lever"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Brake Lever</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Ergonomic brake lever assemblies for EV braking systems.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Disc Brake -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/disc-brake.jpg"
+                alt="Disc Brake"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Disc Brake</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Disc brake assemblies suited for EV weight and regenerative braking integration.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Horn -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/horn.jpg"
+                alt="EV Horn"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Horn</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Loud and reliable horn units compatible with EV electricals.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Switches -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/switches.jpg"
+                alt="EV Switches"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Switches</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Control switches and buttons for EV interior and functions.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Wiring Harness -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/wiring-harness.jpg"
+                alt="Wiring Harness"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Wiring Harness</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Main HV and LV wiring harnesses for EV electrical systems.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- MCB -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/mcb.jpg"
+                alt="MCB (Miniature Circuit Breaker)"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">MCB</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Miniature circuit breakers for EV electrical protection.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Ignition Key -->
+        <div class="product-card">
+            <img
+                src="../ev_assets/ignition-key.jpg"
+                alt="Ignition Key / Start Button"
+                class="product-image"
+                loading="lazy"
+            />
+            <div class="product-details">
+                <h3 class="product-title">Ignition Key</h3>
+                <div class="product-price">Contact for price</div>
+                <p class="product-desc">
+                    Key or push-start button assemblies compatible with EV security systems.
+                </p>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" target="_blank" class="btn-buy">Buy Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- —— Footer (unchanged) —— -->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="../index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="./ev.html"> <i class="fas fa-arrow-right"></i> EVs </a>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="./contact_us.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9440558121 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> iticontactnow@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad</a>
+            </div>
+
+            <div class="box">
+                <h3>social media</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+        </div>
+
+        <div class="credit"> &#169; Created by Institute of technology and Innovation | All Rights Reserved </div>
+    </section>
+
+    <!-- Login Form Overlay -->
+    <div class="login-form-container" id="login-btn">
+        <form action="#" method="post">
+            <h3>Login to Your Account</h3>
+            <input type="email" placeholder="Your Email" class="box" required />
+            <input type="password" placeholder="Your Password" class="box" required />
+            <div class="buttons">
+                <button type="submit" class="btn">Login</button>
+                <p>Don't have an account? <a href="#">Register now</a></p>
+            </div>
+            <div id="close-login-form">×</div>
+        </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script>
+        // Hide-on-scroll header logic
+        (function() {
+            let lastScrollY = window.pageYOffset;
+            const header = document.getElementById("site-header");
+
+            window.addEventListener("scroll", function() {
+                const currentScrollY = window.pageYOffset;
+                if (currentScrollY > lastScrollY) {
+                    header.classList.add("hidden");
+                } else {
+                    header.classList.remove("hidden");
+                }
+                lastScrollY = currentScrollY;
+            });
+        })();
+
+        // Toggle login form
+        const loginBtn = document.querySelector("#login-btn .btn");
+        const loginFormContainer = document.querySelector(".login-form-container");
+        const closeLoginForm = document.querySelector("#close-login-form");
+
+        if (loginBtn && loginFormContainer && closeLoginForm) {
+            loginBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                loginFormContainer.classList.add("active");
+            });
+            closeLoginForm.addEventListener("click", () => {
+                loginFormContainer.classList.remove("active");
+            });
+        }
+    </script>
+    <script>
+    // Initialize all sliders on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // For each product-card slider container
+        document.querySelectorAll('.product-image-slider').forEach(function(sliderEl, index) {
+            new Swiper(sliderEl, {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 10,
+                pagination: {
+                    el: sliderEl.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: sliderEl.querySelector('.swiper-button-next'),
+                    prevEl: sliderEl.querySelector('.swiper-button-prev'),
+                },
+                lazy: {
+                    loadOnTransitionStart: true,
+                    loadPrevNext: true,
+                },
+            });
+        });
+    });
+    </script>
+</body>
+</html>

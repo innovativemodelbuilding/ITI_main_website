@@ -1,0 +1,100 @@
+<!-- contact_us.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – CPR Medical Devices</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="../cpr_style/cpr_style.css"/>
+</head>
+<body>
+
+<header id="site-header" class="header">
+  <div id="menu-btn" class="fas fa-bars"></div>
+  <a href="../index_cpr.html" class="logo"><span>CPR</span> Medical Devices</a>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="./cpr_products.html">Products</a>
+    <a href="./cpr_aboutus.html">About Us</a>
+    <a href="./cpr_contactus.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero-contact">
+  <h3>Contact Us</h3>
+</section>
+
+<section class="contact" id="contact">
+  <div class="row">
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=17.395961,78.456449&z=16&output=embed"
+        allowfullscreen loading="lazy">
+      </iframe>
+      <div class="info">
+        <h3>Get in Touch</h3>
+        <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+        <p><i class="fas fa-envelope"></i> support@cprmedical.in</p>
+        <p><i class="fas fa-map-marker-alt"></i> 1784 Griffin Street, Hyderabad, Telangana, India</p>
+      </div>
+    </div>
+    <form id="contact-form">
+      <h3>Send Us a Message</h3>
+      <input type="text" name="name" placeholder="Your Name" class="box" required/>
+      <input type="email" name="email" placeholder="Your Email" class="box" required/>
+      <input type="text" name="subject" placeholder="Subject" class="box" required/>
+      <textarea name="message" class="box" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="index.html"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="products.html"><i class="fas fa-arrow-right"></i> Products</a>
+      <a href="about_us.html"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="contact_us.html"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#"><i class="fas fa-phone"></i> +91 12345 67890</a>
+      <a href="#"><i class="fas fa-envelope"></i> support@cprmedical.in</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</a>
+    </div>
+  </div>
+  <div class="credit">&#169; 2025 CPR Medical Devices | All Rights Reserved</div>
+</section>
+
+<script src="js/script.js"></script>
+<script>
+  (function(){
+    let lastY=window.pageYOffset; const h=document.getElementById('site-header');
+    window.addEventListener('scroll', ()=>{
+      const y=window.pageYOffset;
+      y>lastY? h.classList.add('hidden'): h.classList.remove('hidden');
+      lastY=y;
+    });
+  })();
+
+  // Intercept contact form
+  document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const to = 'support@cprmedical.in';
+    const su = encodeURIComponent(this.subject.value.trim());
+    const bd = encodeURIComponent(
+      'Name: ' + this.name.value.trim() + '\n' +
+      'Email: ' + this.email.value.trim() + '\n\n' +
+      this.message.value.trim()
+    );
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}&body=${bd}`, '_blank');
+  });
+</script>
+
+</body>
+</html>

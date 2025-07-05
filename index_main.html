@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Business House</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        
+
+		.business-col {
+    display: block;              /* ensure the <a> fills the box */
+    text-align: center;
+    position: relative;
+    flex: 1 1 calc(30% - 20px);
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* remove extra padding at top if present, we'll pad inside text */
+    padding: 0;
+}
+.business-col img {
+    width: 100%;
+    height: 120px;       /* adjust height as desired */
+    object-fit: cover;
+    display: block;
+}
+.business-col h3 {
+    padding: 15px;
+    font-size: 18px;
+    color: #333;
+}
+/* Hover effect */
+.business-col:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+/* Responsive adjustments (if not already present) */
+@media(max-width: 900px){
+    .business-col {
+        flex: 1 1 calc(45% - 20px);
+    }
+}
+@media(max-width: 600px){
+    .business-col {
+        flex: 1 1 100%;
+    }
+}
+
+
+		.course-col {
+    /* if you want the image to span full width, remove top padding or adjust as needed */
+    padding: 0; /* optional: remove existing padding so image touches top */
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.course-col img {
+    width: 100%;
+    height: 150px;           /* adjust height as desired */
+    object-fit: cover;
+    display: block;
+}
+/* To keep spacing for title and text inside the box */
+.course-col h3, .course-col p {
+    padding: 15px;
+}
+/* Hover effect */
+.course-col:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background: #ffffff;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .header{
+            min-height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url('images/banner.png');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        nav{
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        nav img{
+            width: 150px;
+        }
+        .nav-links{
+            flex: 1;
+            text-align: right;
+        }
+        .nav-links ul li{
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+        .nav-links ul li::after{
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #f44336;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+        .nav-links ul li:hover::after{
+            width: 100%;
+        }
+        .nav-links ul li a{
+            font-size: 13px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .text-box{
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+        }
+        .text-box h1{
+            font-size: 48px;
+        }
+        .text-box p{
+            font-size: 16px;
+            margin: 10px 0 40px;
+        }
+        .hero-btn{
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 12px 34px;
+            font-size: 13px;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+        }
+        .hero-btn:hover{
+            border: 1px solid #f44336;
+            background: #f44336;
+            transition: 0.5s;
+        }
+        nav .fa{
+            display: none;
+        }
+        /* Responsive Nav */
+        @media(max-width: 700px){
+            .text-box h1{
+                font-size: 24px;
+            }
+            .nav-links ul li{
+                display: block;
+            }
+            .nav-links{
+                position: fixed;
+                background: #f44336;
+                height: 100vh;
+                width: 200px;
+                top: 0;
+                right: -200px;
+                text-align: left;
+                z-index: 100;
+                transition: 1s;
+            }
+            nav .fa{
+                display: block;
+                color: #fff;
+                margin: 10px;
+                font-size: 22px;
+                cursor: pointer;
+            }
+            .nav-links ul{
+                padding: 30px;
+            }
+        }
+        /* Section styling */
+        section{
+            padding: 80px 0;
+        }
+        .container{
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1.section-title{
+            font-size: 36px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p.section-subtitle{
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 22px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        /* About Us Full-width */
+        .about-us{
+            background: #fff;
+            padding: 60px 0;
+        }
+        .about-us .container{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+        }
+        .about-text{
+            flex: 1 1 400px;
+        }
+        .about-text h2{
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #f44336;
+        }
+        .about-text p{
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 15px;
+            line-height: 24px;
+        }
+        .about-image{
+            flex: 1 1 300px;
+        }
+        .about-image img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        /* Courses Section */
+        .courses .row{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .course-col{
+            flex: 1 1 calc(33.33% - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .course-col:hover{
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+        .course-col h3{
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f44336;
+        }
+        .course-col p{
+            font-size: 14px;
+            color: #555;
+            line-height: 22px;
+        }
+        /* Businesses Section */
+.businesses .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.business-col {
+  position: relative;
+  flex: 1 1 calc(30% - 20px);
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  /* reduced padding so image can be bigger */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.business-col:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+/* force your icon images to a consistent, larger size */
+.business-col img {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 120px;      /* tweak this value as needed */
+  height: 120px;     /* keep square for consistency */
+  object-fit: contain;
+}
+
+.business-col h3 {
+  font-size: 18px;
+  color: #333;
+  margin-top: 0;     /* tightened up since padding is smaller */
+}
+
+/* Responsive adjustments */
+@media(max-width: 900px) {
+  .business-col {
+    flex: 1 1 calc(45% - 20px);
+  }
+}
+
+@media(max-width: 600px) {
+  .business-col {
+    flex: 1 1 100%;
+  }
+}
+
+        /* Services Section */
+        .services .row{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .service-col{
+            flex: 1 1 calc(30% - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .service-col:hover{
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        }
+        .service-col h3{
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #f44336;
+        }
+        .service-col p{
+            font-size: 14px;
+            color: #555;
+            line-height: 22px;
+        }
+        /* Contact Section Full-width */
+        /* Contact Section */
+.contact {
+  padding: 4rem 0;
+  background: #f9f9f9;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact .heading {
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.contact .heading span {
+  position: relative;
+}
+.contact .heading span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 60px;
+  height: 4px;
+  background: #f44336;
+  border-radius: 2px;
+}
+
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Map */
+.contact .row .map {
+  flex: 1 1 42rem;
+  width: 100%;
+  border-radius: .5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+/* Form */
+.contact .row form {
+  flex: 1 1 42rem;
+  background: #fff;
+  padding: 2rem;
+  text-align: center;
+  border-radius: .5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid #ddd;
+}
+
+.contact .row form h3 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+/* Inputs & Textarea */
+.contact .row form .box {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin: .7rem 0;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: .5rem;
+  transition: border-color .2s;
+}
+.contact .row form .box:focus {
+  border-color: #f44336;
+  outline: none;
+}
+
+.contact .row form textarea.box {
+  height: 15rem;
+  resize: none;
+}
+
+/* Button */
+.contact .row form .btn {
+  display: inline-block;
+  width: 100%;
+  padding: .85rem;
+  margin-top: .5rem;
+  background: #f44336;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.contact .row form .btn:hover {
+  background: #d7372f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact .row {
+    flex-direction: column;
+  }
+  .contact .row form {
+    margin-top: 2rem;
+  }
+}
+
+        /* Footer */
+        .footer{
+            background: #222;
+            color: #ccc;
+            padding: 40px 0;
+        }
+        .footer .container{
+            text-align: center;
+        }
+        .footer p{
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .footer .icons .fa{
+            font-size: 20px;
+            color: #f44336;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .footer .icons .fa:hover{
+            opacity: 0.8;
+        }
+        @media(max-width: 900px){
+            .course-col, .business-col, .service-col{
+                flex: 1 1 calc(45% - 20px);
+            }
+        }
+        @media(max-width: 600px){
+            .course-col, .business-col, .service-col{
+                flex: 1 1 100%;
+            }
+            .about-us .container, .contact-us .container{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="./main_images/ITI logo.jpg" alt="ITI Logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                
+                    <li><a href="#businesses">BUSINESSES</a></li>
+                    <li><a href="#services">SERVICES</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box">
+            <h1>Institute of technology and Innovation</h1>
+            <p>We run and support diverse ventures across multiple sectors, providing quality services, training programs, and business solutions under one roof.</p>
+            <a href="#about" class="hero-btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us" id="about">
+        <div class="container">
+            <div class="about-text">
+                <h2>About ITI</h2>
+                <p>Institute of technology and Innovation is a unified platform that nurtures, operates, and empowers businesses across various industries in India and beyond. Our mission is to provide comprehensive services, training, and consultancy to help businesses thrive and innovate. From Food & Catering to Technology, from Healthcare to Real Estate, we bring expertise and support under one umbrella.</p>
+                <p>Our vision is to create a vibrant ecosystem where entrepreneurs, professionals, and customers connect seamlessly. We believe in quality, integrity, and continuous learning. Whether you are starting a new venture or scaling an existing one, Bharat Business House offers resources, guidance, and networks to realize your goals.</p>
+                <p>Join us in our journey to drive growth, foster innovation, and create lasting impact across industries.</p>
+            </div>
+            <div class="about-image">
+                <img src="./main_images/ITI image.jpg" alt="About ITI">
+            </div>
+        </div>
+    </section>
+
+
+    <!--
+<section class="courses" id="courses">
+    <div class="container">
+        <h1 class="section-title">The Courses We Offer</h1>
+        <p class="section-subtitle">
+            For each business we run, we provide specialized training programs and courses to equip you with essential skills.
+        </p>
+        <div class="row">
+            <div class="course-col">
+                <img src="./images/course-food-catering.jpg" alt="Food & Catering Training">
+                <h3>Food & Catering Training</h3>
+                <p>
+                    Comprehensive courses on culinary skills, food safety, catering management, and kitchen operations to launch or enhance your food business.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-electric-vehicles.jpg" alt="Electric Vehicles Training">
+                <h3>Electric Vehicles Training</h3>
+                <p>
+                    Training programs on EV fundamentals, maintenance, repair, battery management, and charging infrastructure.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-3d-printing.jpg" alt="3D Printing Training">
+                <h3>3D Printing Training</h3>
+                <p>
+                    Courses on additive manufacturing technologies, 3D modeling software, printer operation, and materials selection.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-atn.jpg" alt="ATN Training">
+                <h3>ATN Training</h3>
+                <p>
+                    Specialized training on ATN (Advanced Technology Networks) concepts, system integration, and network management.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-automation.jpg" alt="Automation Training">
+                <h3>Automation Training</h3>
+                <p>
+                    Programs covering industrial automation, PLC programming, robotics basics, and process control systems.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-basic-technical.jpg" alt="Basic Technical Training">
+                <h3>Basic Technical Training</h3>
+                <p>
+                    Foundational courses on computer fundamentals, electronics basics, troubleshooting techniques, and technical literacy.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-cpr-machine.jpg" alt="CPR Machine Training">
+                <h3>CPR Machine Training</h3>
+                <p>
+                    Workshops on operation, maintenance, and safety procedures for CPR machines and related medical equipment.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-digital-signage.jpg" alt="Digital Signage Training">
+                <h3>Digital Signage Training</h3>
+                <p>
+                    Training on digital display technologies, content management systems, installation, and maintenance.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-drone-technology.jpg" alt="Drone Technology Training">
+                <h3>Drone Technology Training</h3>
+                <p>
+                    Courses on UAV fundamentals, drone piloting, aerial photography/videography, and regulations compliance.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-fiber-glass-products.jpg" alt="Fiber Glass Products Training">
+                <h3>Fiber Glass Products Training</h3>
+                <p>
+                    Programs on fiber-reinforced composites, molding techniques, finishing processes, and quality control.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-humanoid-robot.jpg" alt="Humanoid Robot Training">
+                <h3>Humanoid Robot Training</h3>
+                <p>
+                    Workshops on robotics fundamentals, humanoid mechanics, control algorithms, and AI integration.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-home-appliance.jpg" alt="Home Appliance Training">
+                <h3>Home Appliance Training</h3>
+                <p>
+                    Training on design, repair, and maintenance of modern home appliances and smart devices.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-lift-escalator.jpg" alt="Lift & Escalator Training">
+                <h3>Lift & Escalator Training</h3>
+                <p>
+                    Courses on elevator and escalator technologies, safety standards, troubleshooting, and maintenance practices.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-led-products.jpg" alt="LED Products Training">
+                <h3>LED Products Training</h3>
+                <p>
+                    Programs covering LED technologies, lighting design, installation techniques, and energy efficiency.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-mep.jpg" alt="MEP Training">
+                <h3>MEP (Mechanical, Electrical, Plumbing) Training</h3>
+                <p>
+                    Training on building services design, installation standards, coordination, and maintenance of MEP systems.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-mobile-charger.jpg" alt="Mobile Charger Training">
+                <h3>Mobile Charger Training</h3>
+                <p>
+                    Workshops on design, repair, and safety testing of mobile charging devices and power banks.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-mobile-phone-service.jpg" alt="Mobile Phone Service Training">
+                <h3>Mobile Phone Service Training</h3>
+                <p>
+                    Training on mobile device diagnostics, repair techniques, software troubleshooting, and customer service.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-nursing-manikin.jpg" alt="Nursing Manikin Training">
+                <h3>Nursing Manikin Training</h3>
+                <p>
+                    Workshops on simulation-based nursing education, manikin usage, maintenance, and scenario design.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-projection-mapping.jpg" alt="Projection Mapping Training">
+                <h3>Projection Mapping Training</h3>
+                <p>
+                    Courses on projection mapping techniques, software tools, 3D surface alignment, and event applications.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-rac-hvac.jpg" alt="R&AC HVAC Training">
+                <h3>R&AC HVAC Training</h3>
+                <p>
+                    Training on refrigeration, air conditioning, and HVAC system design, installation, and maintenance.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-security-systems.jpg" alt="Security Systems Training">
+                <h3>Security Systems Training</h3>
+                <p>
+                    Programs on electronic security, CCTV installation, access control systems, and alarm technologies.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-medical.jpg" alt="Medical Training">
+                <h3>Medical Training</h3>
+                <p>
+                    Workshops on basic medical equipment operation, healthcare protocols, and patient care fundamentals.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-virtual-dressing.jpg" alt="Virtual Dressing Training">
+                <h3>Virtual Dressing Training</h3>
+                <p>
+                    Training on AR/VR applications in fashion, virtual fitting technologies, and user interface design.
+                </p>
+            </div>
+            <div class="course-col">
+                <img src="./images/course-weighing-machine.jpg" alt="Weighing Machine Training">
+                <h3>Weighing Machine Training</h3>
+                <p>
+                    Courses on design, calibration, and maintenance of electronic and mechanical weighing instruments.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+
+<!-- Businesses Section (trimmed down) -->
+<section class="businesses" id="businesses">
+    <div class="container">
+        <h1 class="section-title">Our Businesses</h1>
+        <p class="section-subtitle">Click on a category to explore our dedicated services and ventures.</p>
+        <div class="row">
+            <!-- ITI (formerly Bharat Business / Electric Vehicles) -->
+            <a href="./ITI_EV/index_ev.html" class="business-col">
+                <img src="./main_images/EV_image.png" alt="ITI">
+                <h3>ITI</h3>
+            </a>
+            <!-- Mobile Phone Service -->
+            <a href="./Mobile_service/mobile_service_index.html" class="business-col">
+                <img src="./main_images/mobile service image.jpg" alt="Mobile Phone Service">
+                <h3>Mobile Phone Service</h3>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h1 class="section-title">Why Choose Us</h1>
+            <p class="section-subtitle">We provide tailored solutions and support to ensure your success in every venture.</p>
+            <div class="row">
+                <div class="service-col">
+                    <h3>Expert Guidance</h3>
+                    <p>Our team of industry experts offers insights and mentorship across all sectors to help you make informed decisions.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Comprehensive Training</h3>
+                    <p>We deliver high-quality training programs and workshops designed to build skills and knowledge for entrepreneurs and professionals.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Network & Partnerships</h3>
+                    <p>Leverage our extensive network of partners, clients, and stakeholders to grow your business and foster collaborations.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Quality Assurance</h3>
+                    <p>We maintain high standards of quality in services, products, and training to ensure reliability and trust.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Customized Solutions</h3>
+                    <p>Tailor-made strategies and solutions crafted to meet the unique needs and goals of your business.</p>
+                </div>
+                <div class="service-col">
+                    <h3>Continuous Support</h3>
+                    <p>Ongoing assistance and resources, from consultancy to after-sales support, to keep your ventures thriving.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+<section class="contact" id="contact">
+  <h1 class="heading"><span>contact</span> us</h1>
+
+  <div class="row">
+    <!-- map iframe centered on institute coordinates; embed shows a pin by default -->
+    <iframe
+      class="map"
+      src="https://www.google.com/maps?q=17.395961095106458,78.4564494920397&z=16&output=embed"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <form id="contact-form">
+      <h3>get in touch</h3>
+      <input type="text" name="name" placeholder="Your Name" class="box" required>
+      <input type="email" name="email" placeholder="Your Email" class="box" required>
+      <input type="text" name="subject" placeholder="Subject" class="box">
+      <textarea name="message" placeholder="Your Message" class="box" cols="30" rows="10" required></textarea>
+      <button type="submit" class="btn">send message</button>
+    </form>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="container">
+            <p>&copy; 2025 Institute of technology and Innovation. All Rights Reserved.</p>
+            <div class="icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+            <p>Made with <i class="fa fa-heart"></i> by ITI Team</p>
+        </div>
+    </section>
+
+    <!-- JavaScript for toggle menu -->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+        function showMenu(){ navLinks.style.right = "0"; }
+        function hideMenu(){ navLinks.style.right = "-200px"; }
+    </script>
+    <script>
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Trim and encode values
+      const nameVal    = encodeURIComponent(this.name.value.trim());
+      const emailVal   = encodeURIComponent(this.email.value.trim());
+      const subjectVal = encodeURIComponent(this.subject.value.trim());
+      const bodyVal    = encodeURIComponent(
+        "Name: "  + this.name.value.trim()   + "\n" +
+        "Email: " + this.email.value.trim()  + "\n\n" +
+        this.message.value.trim()
+      );
+
+      // Change the email below if needed
+      const toEmail = "info@bharatbusinesshouse.com";
+
+      // Gmail web compose URL
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to="   + encodeURIComponent(toEmail) +
+        "&su="   + subjectVal +
+        "&body=" + bodyVal;
+
+      window.open(gmailUrl, "_blank");
+    });
+</script>
+</body>
+</html>

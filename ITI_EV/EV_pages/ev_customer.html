@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EV Service</title>
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    />
+    <!-- Font Awesome for icons (e.g., stars for ratings) -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-p+c72PHGdzKfYHu+UH0eYD0vKt+JXhWfB4b82N10q3U6XyX+FChxpKz+NDhHUpCjZD6jDZlD0v2LqvU3KIyxwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <style>
+        /* Example CSS for the hide-on-scroll logic */
+        #site-header {
+          background-color: #e6e6e6;
+          color: #fff;
+          padding: 3rem 9%;
+          /* If you want it to “stick” at the top normally, uncomment: */
+          /* position: sticky; */
+          /* top: 0; */
+          /* z-index: 100; */
+          transition: transform 0.3s ease;
+        }
+
+        #site-header.hidden {
+          transform: translateY(-100%);
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+          color: #000;      /* arrow color = black */
+          font-size: 2rem;  /* arrow size */
+        }
+
+        /* —— Global Styles —— */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* —— Product Grid —— */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .product-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eaeaea;
+        }
+        .product-details {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #111;
+        }
+        .product-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #b12704;
+            margin-bottom: 0.75rem;
+        }
+        .product-rating {
+            margin-bottom: 0.75rem;
+        }
+        .product-rating i {
+            color: #ffa41c;
+            margin-right: 2px;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: #555;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        .btn-buy {
+            background-color: #ffa41c;
+            color: #111;
+            text-align: center;
+            padding: 0.65rem 0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .btn-buy:hover {
+            background-color: #f08804;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="../ev_css/style.css">
+</head>
+
+<body>
+    <!-- Header (same as your index) -->
+    <header id="site-header" class="header">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="../index_ev.html" class="logo">
+            <span> Institute </span>of technology and Innovation
+        </a>
+        <nav class="navbar">
+            <a href="../index_ev.html">Home</a>
+            <a href="./ev.html">EVs</a>
+            <a href="./ev_customer.html">Customer</a>
+            <a href="https://forms.gle/JpLhKTdxGZ2HB2Ag9">Franchise</a>
+            <a href="./ev_aboutus.html">About Us</a>
+            <a href="./ev_contact_us.html">Contact</a>
+            <a href="./ev_career.html">Career</a>
+            <a href="./ev_training.html">Training</a>
+            <a href="./ev_spare_parts.html">Spare Parts</a>
+        </nav>
+    </header> 
+
+    <main>
+        <!-- Section heading -->
+        <section>
+            <h2 class="section-heading">Choose <span>Service</span></h2>
+            <!-- Grid container for cards -->
+            <div class="product-grid">
+                <!-- ===== Buy EV Card ===== -->
+                <div class="product-card">
+                    <!-- Updated src to point into ../ev_assets/ -->
+                    <img
+                        src="../ev_assets/ev-1.webp"
+                        alt="Buy EV"
+                        class="product-image"
+                    />
+                    <div class="product-details">
+                        <h3 class="product-title">Buy EV</h3>
+                        <!-- You can include a price range or leave blank; here a short desc -->
+                        <div class="product-price">Starting at ₹XX,XXX/-</div>
+                        <!-- Optional rating or remove if not applicable -->
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                        <p class="product-desc">
+                            Browse and select from our electric vehicle lineup. Click below to fill out a purchase inquiry form.
+                        </p>
+                        <!-- Link to your “buy” form page -->
+                        <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" class="btn-buy">Proceed to Buy</a>
+                    </div>
+                </div>
+
+                <!-- ===== Repair EV Card ===== -->
+                <div class="product-card">
+                    <!-- Updated src to point into ../ev_assets/ -->
+                    <img
+                        src="../ev_assets/ev_repair.jpg"
+                        alt="Repair EV"
+                        class="product-image"
+                    />
+                    <div class="product-details">
+                        <h3 class="product-title">Repair EV</h3>
+                        <!-- You could omit product-price or use a placeholder -->
+                        <!-- <div class="product-price">From ₹X,XXX/-</div> -->
+                        <div class="product-rating">
+                            <!-- If you want to show service rating, else remove -->
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                        <p class="product-desc">
+                            Schedule maintenance or repairs for your electric vehicle. Click below to fill out a repair request form.
+                        </p>
+                        <!-- Link to your “repair” form page -->
+                        <a href="https://forms.gle/S8Mfxa3PbwXSryXh7" class="btn-buy">Proceed to Repair</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- —— Footer (unchanged) —— -->
+    <section class="footer" id="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Our Branches</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i>  </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="../index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="./ev.html"> <i class="fas fa-arrow-right"></i> EVs </a>
+                <a href="https://forms.gle/S8Mfxa3PbwXSryXh7"> <i class="fas fa-arrow-right"></i> services </a>
+                <a href="./contact_us.html"> <i class="fas fa-arrow-right"></i> contact </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +91 9440558121 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> iticontactnow@gmail.com </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+            </div>
+
+            <div class="box">
+                <h3>social media</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+                <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+            </div>
+        </div>
+
+        <div class="credit"> &#169; Created by Institute of technology and Innovation | All Rights Reserved </div>
+    </section>
+
+    <!-- ===== Optional JavaScript ===== -->
+    <!-- If your existing site uses a JS file to toggle mobile menu, etc., include it here: -->
+    <script src="js/main.js"></script>
+</body>
+</html>

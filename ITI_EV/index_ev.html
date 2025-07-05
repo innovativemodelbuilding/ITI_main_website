@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+      <style>
+    /* Example CSS for the hide-on-scroll logic */
+    #site-header {
+      background-color: #e6e6e6;
+      color: #fff;
+      padding: 3rem 9%;
+      /* If you want it to “stick” at the top normally, uncomment: */
+      /* position: sticky; */
+      /* top: 0; */
+      /* z-index: 100; */
+      transition: transform 0.3s ease;
+    }
+
+    #site-header.hidden {
+      transform: translateY(-100%);
+    }
+    .swiper-button-next,
+.swiper-button-prev {
+  color: #000;      /* arrow color = black */
+  font-size: 2rem;  /* arrow size */
+}
+
+  </style>
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="./ev_css/style.css">
+
+</head>
+<body>
+    
+<header id="site-header" class="header">
+
+    <div id="menu-btn" class="fas fa-bars"></div>
+
+    <a href="./index_ev.html" class="logo">
+      <!-- If there's a logo image, update its src accordingly. Example: -->
+      <!-- <img src="./ev_assets/logo.png" alt="Logo"> -->
+      <span>Institute</span> of Technology and Innovation
+    </a>
+
+    <nav class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./EV_pages/ev.html">EVs</a>
+        <a href="./EV_pages/ev_customer.html">Customer</a>
+        <a href="https://forms.gle/JpLhKTdxGZ2HB2Ag9">Franchise</a>
+        <a href="./EV_pages/ev_aboutus.html">About Us</a>
+        <a href="./EV_pages/ev_contact_us.html">Contact</a>
+        <a href="./EV_pages/ev_career.html">Career</a>
+        <a href="./EV_pages/ev_training.html">Training</a>
+        <a href="./EV_pages/ev_spare_parts.html">Spare Parts</a>
+    </nav>
+
+</header>    
+
+<div class="login-form-container">
+
+    <span id="close-login-form" class="fas fa-times"></span>
+
+    <form action="">
+        <h3>user login</h3>
+        <input type="email" placeholder="email" class="box">
+        <input type="password" placeholder="password" class="box">
+        <p> forget your password <a href="#">click here</a> </p>
+        <input type="submit" value="login" class="btn">
+        <p>or login with</p>
+        <div class="buttons">
+            <a href="#" class="btn"> google </a>
+            <a href="#" class="btn"> facebook </a>
+        </div>
+        <p> don't have an account <a href="#">create one</a> </p>
+    </form>
+
+</div>
+
+<section class="home" id="home">
+
+    <h3 data-speed="-2" class="home-parallax">find your EV</h3>
+
+    
+
+    <a data-speed="7" href="./EV_pages/ev.html" class="btn home-parallax">explore EVs</a>
+
+</section>
+
+<section class="icons-container">
+
+    <div class="icons">
+        <i class="fas fa-home"></i>
+        <div class="content">
+            <h3>150+</h3>
+            <p>branches</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-motorcycle"></i>
+        <div class="content">
+            <h3>4770+</h3>
+            <p>EVs sold</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-users"></i>
+        <div class="content">
+            <h3>320+</h3>
+            <p>happy clients</p>
+        </div>
+    </div>
+
+    <div class="icons">
+        <i class="fas fa-bolt"></i>
+        <div class="content">
+            <h3>1500+</h3>
+            <p>new EVs</p>
+        </div>
+    </div>
+
+</section>
+
+<section class="vehicles" id="vehicles">
+
+    <h1 class="heading"> popular <span>EVs</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <!-- Update to actual filename under ev_assets, e.g., ev-1.jpg or ev-1.png -->
+            <img src="./ev_assets/ev-1.webp" alt="EV 1">
+            <h3>Model A</h3>
+            <div class="price"><span>Price:</span> ₹62,000/-</div>
+            <p>
+                New <span class="fas fa-circle"></span> 2025
+                <span class="fas fa-circle"></span> Automatic
+                <span class="fas fa-circle"></span> Electric
+                <span class="fas fa-circle"></span> 100km/h
+            </p>
+            <a href="./EV_pages/ev.html" class="btn">Check out</a>
+        </div>
+
+        <div class="box">
+            <!-- Update to actual filename, e.g., ev-2.jpg -->
+            <img src="./ev_assets/ev-2.webp" alt="EV 2">
+            <h3>Model B</h3>
+            <div class="price"><span>Price:</span> ₹75,000/-</div>
+            <p>
+                New <span class="fas fa-circle"></span> 2025
+                <span class="fas fa-circle"></span> Automatic
+                <span class="fas fa-circle"></span> Electric
+                <span class="fas fa-circle"></span> 120km/h
+            </p>
+            <a href="./EV_pages/ev.html" class="btn">Check out</a>
+        </div>
+
+        <div class="box">
+            <!-- Original had ev-3.webp under another folder; now use ev_assets -->
+            <img src="./ev_assets/ev-3.webp" alt="EV 3">
+            <h3>Model C</h3>
+            <div class="price"><span>Price:</span> ₹89,000/-</div>
+            <p>
+                New <span class="fas fa-circle"></span> 2025
+                <span class="fas fa-circle"></span> Automatic
+                <span class="fas fa-circle"></span> Electric
+                <span class="fas fa-circle"></span> 130km/h
+            </p>
+            <a href="./EV_pages/ev.html" class="btn">Check out</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-motorcycle"></i>
+            <h3>EV selling</h3>
+            <p>Browse our top-quality electric vehicles—from scooters to motorcycles—and get expert guidance on financing and test rides.</p>
+            <a href="#" class="btn"> read more</a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-tools"></i>
+            <h3>battery repair</h3>
+            <p>Professional battery diagnostics and repairs restore your EV's range and performance using genuine parts.</p>
+            <a href="#" class="btn"> read more</a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Training</h3>
+            <p>Hands-on EV courses teach you maintenance, diagnostics, and battery care, led by industry-seasoned instructors.</p>
+            <a href="#" class="btn">Read more</a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-battery-full"></i>
+            <h3>battery replacement</h3>
+            <p>Seamless OEM battery replacements with expert installation and testing to keep your EV running at peak safety and efficiency.</p>
+            <a href="#" class="btn"> read more</a>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 support</h3>
+            <p>Around-the-clock roadside assistance and remote troubleshooting ensure you're never left stranded.</p>
+            <a href="#" class="btn"> read more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span>featured</span> EVs </h1>
+
+    <div class="swiper featured-slider">
+
+       <div class="swiper-wrapper">
+
+            <!-- EV #1 -->
+            <div class="swiper-slide box">
+                <img src="./ev_assets/ev-1.webp" alt="Model A">
+                <div class="content">
+                    <h3>Model A</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="price">₹55,000/-</div>
+                    <a href="./EV_pages/ev.html" class="btn">Check Out</a>
+                </div>
+            </div>
+
+            <!-- EV #2 -->
+            <div class="swiper-slide box">
+                <img src="./ev_assets/ev-2.webp" alt="Model B">
+                <div class="content">
+                    <h3>Model B</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">₹62,000/-</div>
+                    <a href="./EV_pages/ev.html" class="btn">Check Out</a>
+                </div>
+            </div>
+
+            <!-- EV #3 -->
+            <div class="swiper-slide box">
+                <img src="./ev_assets/ev-3.webp" alt="Model C">
+                <div class="content">
+                    <h3>Model C</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">₹48,000/-</div>
+                    <a href="./EV_pages/ev.html" class="btn">Check Out</a>
+                </div>
+            </div>
+
+            <!-- EV #4 -->
+            <div class="swiper-slide box">
+                <img src="./ev_assets/ev-4.webp" alt="Model D">
+                <div class="content">
+                    <h3>Model D</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">₹72,000/-</div>
+                    <a href="./EV_pages/ev.html" class="btn">Check Out</a>
+                </div>
+            </div>
+
+            <!-- EV #5 -->
+            <div class="swiper-slide box">
+                <img src="./ev_assets/ev-5.webp" alt="Model E">
+                <div class="content">
+                    <h3>Model E</h3>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="price">₹52,500/-</div>
+                    <a href="./EV_pages/ev.html" class="btn">Check Out</a>
+                </div>
+            </div>
+
+       </div>
+
+       <div class="swiper-pagination"></div>
+         <!-- Add these two lines below: -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+    </div>
+
+</section>
+
+
+  <section class="contact" id="contact">
+  <h1 class="heading"><span>contact</span> us</h1>
+
+  <div class="row">
+    <!-- iframe centered on institute coordinates; embed shows a pin by default -->
+    <iframe
+      class="map"
+      src="https://www.google.com/maps?q=17.395961095106458,78.4564494920397&z=16&output=embed"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <form id="contact-form">
+      <h3>get in touch</h3>
+      <input type="text" name="name" placeholder="your name" class="box" required>
+      <input type="email" name="email" placeholder="your email" class="box" required>
+      <input type="text" name="subject" placeholder="subject" class="box" required>
+      <textarea name="message" placeholder="your message" class="box" cols="30" rows="10" required></textarea>
+      <button type="submit" class="btn">send message</button>
+    </form>
+  </div>
+</section>
+<section class="footer" id="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Our Branches</h3>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> India </a>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="./index.html"> <i class="fas fa-arrow-right"></i> Home </a>
+            <a href="./pages/ev.html"> <i class="fas fa-arrow-right"></i> EVs </a>
+            <a href="https://forms.gle/S8Mfxa3PbwXSryXh7"> <i class="fas fa-arrow-right"></i> services </a>
+            <a href="./pages/contact_us.html"> <i class="fas fa-arrow-right"></i> contact </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +91 9440558121 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> iticontactnow@gmail.com</a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> Hyderabad </a>
+        </div>
+
+        <div class="box">
+            <h3>social media</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
+        </div>
+
+    </div>
+
+    <div class="credit"> &#169; Created by Institute of Technology and Innovation | All Rights Reserved </div>
+
+</section>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+  <!-- Inline hide-on-scroll script: make sure it runs after the header is in the DOM -->
+  <script>
+    (function () {
+      let lastScrollY = window.pageYOffset;
+      const header = document.getElementById("site-header");
+
+      window.addEventListener("scroll", function () {
+        const currentScrollY = window.pageYOffset;
+
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down → hide header
+          header.classList.add("hidden");
+        } else {
+          // Scrolling up → show header
+          header.classList.remove("hidden");
+        }
+
+        lastScrollY = currentScrollY;
+      });
+    })();
+  </script>
+
+<script>
+new Swiper(".featured-slider", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  breakpoints: {
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 }
+  }
+});
+</script>
+
+<script>
+  document
+    .getElementById("contact-form")
+    .addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Trim and encode values
+      const nameVal    = encodeURIComponent(this.name.value.trim());
+      const emailVal   = encodeURIComponent(this.email.value.trim());
+      const subjectVal = encodeURIComponent(this.subject.value.trim());
+      const bodyVal    = encodeURIComponent(
+        "Name: "  + this.name.value.trim()   + "\n" +
+        "Email: " + this.email.value.trim()  + "\n\n" +
+        this.message.value.trim()
+      );
+
+      // Change the email below if needed
+      const toEmail = "iticontactnow@gmail.com";
+
+      // Gmail web compose URL
+      const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to="   + encodeURIComponent(toEmail) +
+        "&su="   + subjectVal +
+        "&body=" + bodyVal;
+
+      window.open(gmailUrl, "_blank");
+    });
+</script>
+</body>
+</html>

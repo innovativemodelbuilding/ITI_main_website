@@ -1,0 +1,115 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our CPR Machines</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="../cpr_style/cpr_style.css"/>
+</head>
+<body>
+
+<header id="site-header" class="header">
+  <div id="menu-btn" class="fas fa-bars"></div>
+  <a href="../index_cpr.html" class="logo"><span>CPR</span> Medical Devices</a>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="./cpr_products.html">Products</a>
+    <a href="./cpr_aboutus.html">About Us</a>
+    <a href="./cpr_contactus.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="section-heading"> Our <span>CPR Machines</span> </h1>
+  <div class="product-grid">
+    <!-- Model A -->
+    <div class="product-card" id="model-a">
+      <img src="cpr_assets/model-a.jpg" alt="Model A" class="product-image"/>
+      <div class="product-details">
+        <h3 class="product-title">Model A</h3>
+        <div class="product-price">₹1,20,000/-</div>
+        <div class="product-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          <span>(4.5)</span>
+        </div>
+        <p class="product-desc">
+          Portable automatic CPR device, 100 compressions/min, integrated USB charging.
+        </p>
+        <button class="btn-buy">Buy Now</button>
+      </div>
+    </div>
+    <!-- Model B -->
+    <div class="product-card" id="model-b">
+      <img src="cpr_assets/model-b.jpg" alt="Model B" class="product-image"/>
+      <div class="product-details">
+        <h3 class="product-title">Model B</h3>
+        <div class="product-price">₹1,50,000/-</div>
+        <div class="product-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <span>(5.0)</span>
+        </div>
+        <p class="product-desc">
+          Dual‑mode operation with LCD feedback, 110 compressions/min, hospital‑grade.
+        </p>
+        <button class="btn-buy">Buy Now</button>
+      </div>
+    </div>
+    <!-- Model C -->
+    <div class="product-card" id="model-c">
+      <img src="cpr_assets/model-c.jpg" alt="Model C" class="product-image"/>
+      <div class="product-details">
+        <h3 class="product-title">Model C</h3>
+        <div class="product-price">₹1,80,000/-</div>
+        <div class="product-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i><i class="fas fa-star"></i>
+          <span>(4.3)</span>
+        </div>
+        <p class="product-desc">
+          High‑end portable unit, 120 compressions/min, premium audio‑visual cues.
+        </p>
+        <button class="btn-buy">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="index.html"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="products.html"><i class="fas fa-arrow-right"></i> Products</a>
+      <a href="about_us.html"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="contact_us.html"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#"><i class="fas fa-phone"></i> +91 12345 67890</a>
+      <a href="#"><i class="fas fa-envelope"></i> support@cprmedical.in</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</a>
+    </div>
+  </div>
+  <div class="credit">&#169; 2025 CPR Medical Devices | All Rights Reserved</div>
+</section>
+
+<script src="js/script.js"></script>
+<script>
+  (function(){
+    let lastY=window.pageYOffset; const h=document.getElementById('site-header');
+    window.addEventListener('scroll', ()=>{
+      const y=window.pageYOffset;
+      y>lastY? h.classList.add('hidden'): h.classList.remove('hidden');
+      lastY=y;
+    });
+  })();
+</script>
+
+</body>
+</html>

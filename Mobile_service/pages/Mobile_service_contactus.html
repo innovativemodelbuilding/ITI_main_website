@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – Mobile Service Center</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link rel="stylesheet" href="../Mobile_service style/mobile_service.css"/>
+</head>
+<body>
+
+<header id="site-header" class="header">
+  <div id="menu-btn" class="fas fa-bars"></div>
+  <a href="../mobile_service_index.html" class="logo">
+    <span>Mobile</span> Service Center
+  </a>
+  <nav class="navbar">
+    <a href="../mobile_service_index.html">Home</a>
+    <a href="./services.html">Services</a>
+    <a href="./Mobile_service_aboutus.html">About Us</a>
+    <a href="./Mobile_service_contactus.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero-contact">
+  <h3>Contact Us</h3>
+</section>
+
+<section class="contact" id="contact">
+  <div class="row">
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps?q=17.395961,78.456449&z=16&output=embed"
+        allowfullscreen loading="lazy">
+      </iframe>
+      <div class="info">
+        <h3>Visit Us</h3>
+        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+        <p><i class="fas fa-envelope"></i> support@mobileservice.in</p>
+        <p>
+          <i class="fas fa-map-marker-alt"></i>
+          12‑3‑456, MG Road, Hyderabad, Telangana, India
+        </p>
+      </div>
+    </div>
+    <form id="contact-form">
+      <h3>Send Us a Message</h3>
+      <input type="text" name="name" placeholder="Your Name" class="box" required/>
+      <input type="email" name="email" placeholder="Your Email" class="box" required/>
+      <input type="text" name="subject" placeholder="Subject" class="box" required/>
+      <textarea name="message" class="box" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="../mobile_service_index.html"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="services.html"><i class="fas fa-arrow-right"></i> Services</a>
+      <a href="about_us.html"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="contact_us.html"><i class="fas fa-arrow-right"></i> Contact</a>
+    </div>
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#"><i class="fas fa-phone"></i> +91 98765 43210</a>
+      <a href="#"><i class="fas fa-envelope"></i> support@mobileservice.in</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Hyderabad, India</a>
+    </div>
+  </div>
+  <div class="credit">
+    &#169; 2025 Mobile Service Center | All Rights Reserved
+  </div>
+</section>
+
+<script src="../js/script.js"></script>
+<script>
+  (function() {
+    let lastY = window.pageYOffset;
+    const header = document.getElementById("site-header");
+    window.addEventListener("scroll", function() {
+      const y = window.pageYOffset;
+      if (y > lastY) header.classList.add("hidden");
+      else header.classList.remove("hidden");
+      lastY = y;
+    });
+  })();
+
+  // Contact form via Gmail
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const to = "support@mobileservice.in";
+    const su = encodeURIComponent(this.subject.value.trim());
+    const bd = encodeURIComponent(
+      "Name: " + this.name.value.trim() + "\n" +
+      "Email: " + this.email.value.trim() + "\n\n" +
+      this.message.value.trim()
+    );
+    window.open(
+      `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${su}&body=${bd}`,
+      "_blank"
+    );
+  });
+</script>
+</body>
+</html>
